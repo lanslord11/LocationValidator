@@ -1,0 +1,33 @@
+<div>
+    <form #dataEntry="ngForm" (ngSubmit)="onSubmitHander(dataEntry.value)">
+        <div>
+            <input type="number" name="latitude" placeholder="Enter Latitude" id="latitude" ngModel  >
+            <input type="number" name="longitude" placeholder="Enter Longitude" id="longitude" ngModel  >
+            <input type="number" name='radius' placeholder="Enter Radius in KM" ngModel>
+        </div>
+        <button type="submit">Add Location-Radius</button>
+    </form>
+    <button (click)="deleteAll()" class="delete">
+        Delete All
+    </button>
+    <div>
+        <table>
+            <tr>
+                <td>Latitude</td>
+                <td>Longitude</td>
+                <td>Radius</td>
+            </tr>
+            <tr *ngFor="let item of data">
+                <td>{{item.latitude}}</td>
+                <td>{{item.longitude}}</td>
+                <td>{{item.radius}}</td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        <button (click)="validate()">Validate</button>
+        {{vali}}
+    </div>
+
+</div>
